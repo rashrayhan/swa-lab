@@ -132,9 +132,6 @@ DTO’s ***************
 
 LECTURE 6 ************* JMS 
 
-JMS ***********
-- 
-
 Hub and spoke ***********
 - functionality: transport, transformation (xml to json), routing (sending message to component based on certain criteria) and orchestration (business process runs within the integration broker)
 - benefits: separation of concerns, easy to add new components and uses adapters
@@ -144,16 +141,20 @@ SOA *********
 - SOA  aspects: ESB communication, decomposing business domain in services and making the business processes a 1st class citizen
 - Benefits: independent services, separation of business processes and service logic, reuse of services, architecture flexibility
 
-
 ESB ***********
-Integration patterns  ***********
-- Point-to-point/publish subscribe: subscribers subscribe to channels, publishers publish messages to particular channel and subscribers receives the messages 
+- subscribers subscribe to channels, publishers publish messages to particular channel and subscribers receives the messages 
+- xtics/benefits: asynchronous, loose coupling,  separation of concerns and easy to add new components
+- responsibilities: routing, message transformation, security, transaction management, message processing, service mapping etc 
+- drawbacks: complex and performance 
 
-- Datatype channel 
-- Dead letter channel
-- Command, document, event message 
+Integration patterns  ***********
+- Point-to-point: only one receiver will receive the message
+- publish subscribe: every subscriber receives the message
+- Datatype channel: a channel is used for each data type, to make the receiver know how to process it 
+- Dead letter channel- for undeliverable messages
+- Command, document, event message - 
 - Message dispatcher 
-- Router 
+- Router: build in routers (payloadTypeROuter, headerValueROuter and recipientListROuter) and custom routers 
 - Filter 
 - Recipient list 
 - Splitter 
@@ -161,5 +162,27 @@ Integration patterns  ***********
 - Normalizer 
 - Canonical data model 
 
-TM Quotes
+LESSON 7 **************
+ESB versus Integration Framework  *********
+Integration patterns in spring integration ******
+XML configuration for the following patterns
+- Service activator
+- Gateway
+- Channels
+- Point-to-point vs. Publish-subscribe
+- Synchronous vs asynchronous
+- Custom router
+- Filter
+- Transformer
+
+Java implementation of the following patterns ****
+- Custom router
+- Filter
+- Transformer 
+
+
+TM Quotes ********
 - TM is the source of all activity
+- The Unified Field, the home of all the laws of nature is the source of everything in creation
+- Support of Nature increases when one’s thoughts and actions become more in tune with the laws of Nature
+- Transcendental consciousness is the field that connects everything together.
