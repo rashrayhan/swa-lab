@@ -28,9 +28,13 @@ Software Quality improvement********
 LECTURE 2 ***************
 Architecture styles ****
 - Layering: logical separation of concerns. each layer is independent and are distributed. they can use different techniques. 3 layered architecure e.g. is ui, domain, and persistence layer. benefits: can be distributed, separation of concerns. disadvantages: performance and manpower need
+
 - Client-server: multiple clients per server, multiple tiers (a physical separation of a system) and requests are typically handled in separate threads. Benefits: easy maintenance and support. Disadvantage is performance
+
 - Pipe and filter: they aid application communication, they are independent and reusable components, their orders can change and new filters can be added. Disadvantages include sequential processing and state sharing difficulty
+
 - Master-slave: masters coordinates work and organizes work into distinct subtasks. these tasks are allocated to isolated slaves. the slaves report their result to the master and the master integrates the results. Benefit is scaling, fault tolerant in slaves and complete control of master. demerits is single point of failure and problems must be decomposable 
+
 - Microkernel: like a framework, benefits includes flexibility, extensibility and separation of conern. Demerits is complexity
 
 Service class******
@@ -133,9 +137,10 @@ DTO’s ***************
 LECTURE 6 ************* JMS 
 
 Hub and spoke ***********
+- Used for connecting multiple systems. Solves integration problems 
 - functionality: transport, transformation (xml to json), routing (sending message to component based on certain criteria) and orchestration (business process runs within the integration broker)
 - benefits: separation of concerns, easy to add new components and uses adapters
-- drawbacks: single point of failure, complexity and legacy in nature
+- drawbacks: single point of failure, complexity and integration broker becomes legacy itself
 
 SOA *********
 - SOA  aspects: ESB communication, decomposing business domain in services and making the business processes a 1st class citizen
@@ -147,20 +152,35 @@ ESB ***********
 - responsibilities: routing, message transformation, security, transaction management, message processing, service mapping etc 
 - drawbacks: complex and performance 
 
-Integration patterns  ***********
-- Point-to-point: only one receiver will receive the message
-- publish subscribe: every subscriber receives the message
+INTEGRATION PATTERNS ***********
+
+Messaging channel patterns **********
+- Synchronous Point-to-point: only one receiver will receive the message
+- ASynchronous Point-to-point
+- Synchronous publish subscribe: every subscriber receives the message
+- ASynchronous publish subscribe: 
 - Datatype channel: a channel is used for each data type, to make the receiver know how to process it 
 - Dead letter channel- for undeliverable messages
-- Command, document, event message - 
-- Message dispatcher 
+- channel adapter: connect the app to the messaging system
+- message bridge: connect 2 messaging systems
+
+Messaging construction patterns **********
+- event message - e.g. aPriceChangeEvent
+- Command message e.g. getLastTradePrice
+- document  message e.g. aPurchaseOrder
+
+Message Endpoint **********
+- competing consumers, Message dispatcher, durable and non durable subscribers, service activator
+
+Message Router *********
+- content based router, dynamic router, rmessage filter, recipient list, splitter, aggregator, sequencer, composite message processor 
+
+Message Trnsformation ********
+- enveloper wrapper, claim check, normalizer, canonical data model
+
+ 
 - Router: build in routers (payloadTypeROuter, headerValueROuter and recipientListROuter) and custom routers 
-- Filter 
-- Recipient list 
-- Splitter 
-- Aggregator 
-- Normalizer 
-- Canonical data model 
+
 
 LESSON 7 **************
 ESB versus Integration Framework  *********
