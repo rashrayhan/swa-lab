@@ -1,0 +1,175 @@
+Spring:
+1.  Dependency Injection is the core of SPring 
+@Autowired
+Inversion of control, separation of concerns and loose coupling. Can be constructor, field based or setter and getter
+
+2.  IOC Container, Spring IOC  :: 
+A design pattern used to implement DI to ensure loose coupling and modularity
+
+3. SpringBoot Actuator: a tool for monitoring and managing our app in production. 
+
+3.  How to validate request header in Spring? :: 
+use @Validated on controller
+
+4.  difference between spring and spring boot :: 
+Spring: web framework for java application
+SpringBoot: a bootstrapped module of spring framework for faster dev
+
+5. Benefits of Springboot: auto config, stand alone apps, embedded http servers, provides cli to develop and test apps
+
+6. Features of Springboot: Spring CLI, starter dependency, Initializer, auto-config, actuator, logging and security
+
+5.  Explain Bean lifecycle in Spring framework? :: 
+Bean are managed by IOC container
+IOC look for bean, instantiate bean, create DI, destroy bean
+
+6. How to exclude any package without using the basePackages filter?
+use the exclude and pass the package
+@SpringBootApplication(exclude= {Employee.class})
+
+6.  How to get the id field from headers and store it to a variable ?
+@RequestHeader in the rest controller 
+@RequestHeader("id") int id
+
+7.  RestController vs controller :: 
+RestController = @Controller and @ResponseBody returns HTTP as JSON or XML
+Controller = maps the object model and find corresponding view
+
+8.  How you secure rest API. Spring Security Configuration. :: use jwt or
+add spring-boot-starter-security to pm file, then use spring security @Configuration and extends WebSecurityConfigurerAdapter 
+
+9.  Http Methods and when you will use what. :: 
+post, get, put, delete, patch
+
+11. Explain working and use of these annotations 
+@Autowired for DI
+@component for making class a Bean
+@service a type of @component for specifying that a class performs a service
+@Transactional for Data Access layer placed before a dao interface
+@Qualifier for used with @Autowired for having more control of the DI
+@Configuration for defining Bean used with @ComponentScan
+@SpringBootApplication does @Config, @ComponentScan, @EnableAutoConfiguration
+@RequestMapping: used to map web requests to spring controller methods
+
+12. @Controller: a stype of component for handling routing in Spring
+
+13. @RestController: specialization of controller for restful web services. It is a combination of @Controller and @ResponseBody
+
+14. @ResponseBody: method annotation indicating that the return type should be written directly to the HTTP response body and not the model. Used by @RestController
+
+15. @PathVariable: allows us to read values from the URI, like query params
+
+12. How to use spring mvc interceptor :: 
+create class with @Component that implements HandlerInterceptor then define preHandle(), postHandle() and afterCompletion().
+More like AOP
+
+14. deploy a web application to tomcat :: 
+export as a war file and deploy the war on tomcat (copy to tomcat home dir)
+
+20. what is servlet ::
+java programs that run on java enabled web server or application server
+
+21. HTTP error codes - 400 vs 500 :: 
+400: client code
+500: server code
+
+24. which layer consists of business logic in spring?
+Service Layer 
+
+25. Default bean scope, why is the singleton bean default? :: 
+Single bean object for the entire IOC container
+Others: prototype, session, request, application, websocket
+
+26. difference b/w primary and unique key in DB? :: 
+primary: column to uniquely identify a row. cant be null
+unique: foreign key to identify a table. can be null
+
+27. In error logging how can the logs help us? and how could we do to make the logs more helpful?
+for debugging, by adding customer messages 
+
+28. How would you read a big file and count characters? :: I can use streams
+
+29. Kind of design patterns used in designing an application? 
+creational: class instantiation or object creation e.g. factory, singleton etc
+structural: organizing diff classes and obj together e.g. decorator, facade, etc
+behavioral: identifying common comm pattern btwn obj e.g. observer, template, etc
+
+33. Get the list of Book Object which has the price < 10000
+create service findByRange(int range)
+implement service and add implementation to Respository
+
+34. What is webservice ,what is Restful api
+webservice: software or resource available over the internet
+restful api: a type of webservice
+
+38. what are web filter in spring ::
+used to intercept http requests
+
+39. how to implement singleton in spring :: 
+@Scope("singleton") but it is redundant since bean are singleton by default
+<bean id="beanId" class="com.howtodoinjava.BeanClass" scope="singleton" />
+
+44. How do browser validate a request/response :: 
+by using http headers, enforcing https, caching
+
+37. How to write Junit to test
+write your class logic
+write your test class
+
+ @Test  
+    public void testFindMax(){  
+        assertEquals(4,Calculation.findMax(new int[]{1,3,4,2}));  
+        assertEquals(-1,Calculation.findMax(new int[]{-12,-1,-3,-4,-2}));  
+    }  
+
+Methods includ: before, after, 
+
+45. How Do You Override a Spring Boot Project’s Default Properties?
+modifying the application.properties file
+
+46. Spring Actuator
+helps to access the current state of an app in production environment
+
+47. Spring embedded containers/servers
+tomcat, jetty, undertow, etc
+
+48. How Can You Set Up Service Discovery?
+using eureka by netflix: client and server config
+
+49. How to Log in Spring boot
+Add log4j2 as a dependency 
+
+50. How to implement proxy in spring
+Use AOP 
+
+
+51. Spring REST:  
+
+Rest APIs: Jersey, Spark, etc  
+
+1. WHat is a Resource: Data presented in the REST architecture
+
+2. Safe REST operation: HTTP methods that do not change the state of the server e.g. GET, HEAD, etc
+
+3. Idempotent Operations: HTTP methods that produces the same result all the time
+
+4. RestTemplate: is a class used to consume RESTful web services 
+
+5. Spring HTTP methods: get, post, put and delete
+
+6. Is REST normally stateless: yes, because it is based on HTTP, which is also stateless.
+
+7. Rest Security: it is not secured
+
+
+Webservices: enables machine-machine comm, language neutral, comm through network. REST or SOAP 
+SOAP: single object based on XML and has WSDL for service definition standards. Single format
+REST: an architecture for state transfer following client-server architecture (server produces resource, client consumes resource), uniform interface resource, stateless and cacheable
+
+Design Pattern
+Singleton: Restrict the instantiation of multiple object per class
+Builder pattern: for search filters
+
+JWT ***********
+- stateless service for authentication. Consist of 3 parts (header (algo and token type), payload (data) and signature)
+- 

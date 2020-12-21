@@ -1,0 +1,177 @@
+Angular******
+- A typescript based open source web app framework
+
+Features *****
+- angular cli, animation support, cross platform app, code generation
+- code splitting: code required to render the view is loaded first
+- templates, testing, etc
+
+New Angular 9 features*** 
+- bundle sizes
+- new compiler (Ivy) but still supports view engine
+- improved build times, enabling AOT by default
+- additional providedIn scope 
+- improved css class, type checking and build errors
+- support for Youtube and google map by default
+
+Frequently used modules ****
+- BrowserModule, commonModule(ngfor, etc), formsModule, ReactiveformsModule, RouterModule, HttpClientModule
+e.g. import { NgModule } from '@angular/core';
+-BrowserModule imports CommonModule
+
+Advantages of Angular over other frameworks ****
+- declarative UI, custom directive, mvc architecture, 2 way data binding
+- long-term google support hence huge community
+- out-of-the-box features like routing, rxjs, state management, etc
+
+Building blocks of angular *******
+- components: controls one or more views
+- data binding: 2 way data binding mvvm
+- DI- used to provide required dependencies to new comonents
+- Directives, routing, services, modules, templates, etc
+
+Angular.json ******
+- file that contains the configurations of the app
+
+Directives: *********
+they add behavior to host element 
+- Attributes: dom friendly ngStyle
+- structural: dom unfriendly *ngfor, *ngif, etc
+- cuustom/component/ng-content: template
+
+Templates ******
+- a file that contains angular-specific attributes and elements. Used to handle dynamic view by combining info from the controller and model
+
+Data binding: ****
+- 2 way data binding mvvm, but supports 1 way too
+- property binding [], event binding (), template binding {{}}
+- String interpolation/moustache syntax: It uses template expression to display component data. It allows only 1 way data binding: component -> view. It is achieved using template binding {{}}
+
+Lifecylce hooks *******
+- onInit, onChange, onDestroy, onDoCheck, onAfterViewChecked, onDestroy, etc
+
+JIT vs AOT ****
+- JIT = dev -> prod -> app dwnlded in browser -> angular parses & compiles
+- AOT = dev ->  angular parses & compiles ->prod -> app dwnlded in browser
+- ng build --aot 	- ng serve --aot
+
+Components vs Modules vs Services *****
+- Modules consists of one or more components. Cmponents are defined in modules
+- components controls the views (html) and communicate with other components
+- Each component has selector, template/template url and styles url
+- Services are singleton objects which get instantiated only once during the lifetime of an application. The primary intent of service is to share business logic, models, or data and functions with various components of an angular app. They are defined using @Injectable.
+
+Routing ******
+- A service that provides navigation and URL manipulation capabilities
+- Route guards: interfaces which tell the router whether or not to allow navigation to a requested route (Can be CanActivate, CanActivateChild, CanDeactivate, CanLoad, Resolve)
+- http interceptors: chain of interceptors for authentication that transforms the outgoing request before passing it to the next interceptor
+
+Pipes ******
+- Takes a data as input and transform it to a desired output. e.g. using moment.js for date formating. Use sprite (|) to bind the pipe to the component. E.g. date, number, lowercase, currently, filter, splice, etc
+
+Promise Vs Observables: *******
+- Debouncing: delayin a function/method execution for a period of time
+- Promise return a signle value and not cancellable. 
+- Observables work with multiple values, cancellable and uses RxJS
+- Observables: declaratives which provide support for passing messaages between publishers and subscribers in an app. Mainly used for event handling, asynchronous programming, etc
+- Observer: An interface of a consumer of push-based notifications (next, error and complete)
+- Subscribing: An observable instance begins publishing values when someone subscribes to it using subscribe() method of the instance
+- Multicasting: Broadcasting list of multiple subscribers in a single execution
+
+Http Interceptors *******
+- a function that received req/res before they are processed/sent to the server. E.g. setting authorization header bearer for all request 
+
+Change Detectors*******8
+- Change detection is the process of synchronizing a model with a view. It moves only forward and never back, starting from the root to the last. 
+- Each component has its own changeDetector. All change detectors are inherited from AbstractChangeDetector
+- Change detection can be achieved through default or onPush. Zone is used to check the entire tree in a case where all components uses the default strategy
+
+state types: *****
+- server state (rest api), app state (routes), page state (components)
+
+Constructor Vs ngOnInit****************
+- Constructor is a default method of the class for creating an instance of the class
+- ngOnInit: a life cycle hook called when Angular is done creating the component 
+
+Scope Hierarchy **********
+- Angular organizes the $scope objects into root and child scopes. Each view's view controller remain hidden to other view controllers
+
+Tree shakable: ********
+- used to define services to be used by the DI in Angular. It improves performance
+
+Workers *********
+- Service worker: used to manage caching and turning an app to PWA
+- Web Worker: allows running CPU-intensive computations in the background
+
+HostListner *********
+- a function decorator which accepts an event name as the argument calls the associated function when event gets fired
+
+HostBinding *******
+- bind input properties in the host element to the directive
+
+Annotation vs Decorator *****
+- annotations are used for creating annotation array, just like a metadata
+- decorator: a design pattern used for separating decoration or modification of some class without changing the original source code. 
+
+Core and Shared Modules *****
+- shared module serves as a generic module for all modules, components, directive and pipes
+- Core module is a place to store services that requires single instance 
+
+Reactive Programming (RxJS)*********
+- programming with asynchronous data streams using RxJS, it provides an implementation of the Observable type e.g. from, fromEvent, interval, map, filter, etc
+- FUnctions: mapping, stream iteration, filtering and composing multiple streams
+- map applies a projection to each value
+- switchMap allows cancelling
+
+Angular CDK********
+- These are tools, services and modules for building web components. It is open source
+
+Select an element in Component template *****
+- use ElementRef by injecting it into your component's constructor:
+constructor(myElement: ElementRef) { ... }
+
+Angular Core Dependencies *****
+- RxJS and TypeScript are the 2 core dependencies
+
+Virtual DOM *****
+- creates a whole tree from scratch on each render
+
+Controlling ANgular AOT ******
+- By providing template compiler options in the tsconfig.json file
+- By configuring Angular metadata with decorators
+
+ActivatedRoute******
+- contains information about a route associated with a component loaded in an outlet. Can be used to traverse the router state tree. It is injected as a DI in the constructor 
+
+Router-outlet ******
+- A directive from the router library that acts as a placeholder for definining where components should be displayed
+<router-outlet></router-outlet>
+
+Parent-Child Component COmmunication ***********
+- Parent to child using @Input decorator
+- Child to Parent using @ViewChild decorator
+
+Digest cycle******
+- The process of monitoring the watchlist in order to track changes in the value of a watch variable. It is implicit but can be explicitly triggered using $apply()
+
+ViewEncapsulation ***********
+- None- styles used in other html spread to all components of the app
+- Emulated: styles used in other html spread to the components
+- Native- styles used in other html does not spread to the components
+
+Angular Test Bed (ATB) *********
+- Higher level Angular only test framework that allows easy test of behaviors 
+- The TestBed creates a dynamically-constructed Angular test module that emulates an Angular @NgModule.
+
+Redux *****
+Way of managing application state and improving maintainability in application 
+
+Techniques for securing an Angular app*****
+- valiate all req/res and sanitize all input data
+- use angular template instead of DOM APIs
+- use offline template compiler
+- keep all libraries and frameworks upto date
+
+Angular vs Backbone.js ***********
+- backbone is based on mvp and has no data binding
+- angular is mvc and has 2way data binding

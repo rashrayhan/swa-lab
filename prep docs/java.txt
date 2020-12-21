@@ -1,0 +1,161 @@
+Java *
+
+Access Modifiers *****
+- Private: class
+- Default: package
+- Protected: within and outside package by subclass
+- Public: everywhere
+
+Constructor ******
+- default and parametized. Cannot be final. It returns an instance of the class
+- Constructor chaining: call one constructor from another in the same class using this keyword or child class using super keyword
+
+4 OOP pillar: ********
+- inheritance is-a r/ship btwn 2 objects, 
+- encapsulation (data-hiding), it wraps code into single unit
+- abstraction (exposing only the essential details of an entity, expressing the intent of a class rather than its implementation)
+- polymorphism (dynamic behavior, e.g. overloading)
+	- static poly: method overloading
+	- dynamic poly: method overriding
+
+Overload and override *******
+- Overloading: the same method name but different parameters
+- Overriding: Giving a method a dynamic behavior. i.e. allowing a child class to provide specific implementation 
+
+Collection Interface*******
+- Objects such as List, Set, Queue,etc
+- Collections is a class for sorting and synchronization of collection element
+- Generic collection: type safe and checked at compile time
+- Concurrent collection: API designed for multithreading
+- HashMap<K,V>: implements map interface and uses hashing technique, unsorted, not threadsafe, allows null key and values
+- ConcurrentHashMap: like hashtable but does not allow null
+- HashTable<K,V>:threadsafe, no null key or value
+- TreeMap<K,V>: implements map interface, sorted, unique, not threadsafe
+- HashSet<E>: implements set interface, allows null, unique elements and non synchronized/ not threadsafe 
+- TreeSet<E>: implement set interface, sorted, not threadsafe
+- ArrayList<E>: implements List interfaces, duplicates, not fixed size (dynamic array), for better storage and access
+- LinkedList: uses doubly linkedlist, faster, can be both list and queue, for better data manipulation 
+- ArrayList (synchronized) vs Vector (not synchronized) 
+- Vector: synchronized, slow and threadsafe. 
+- Bucket: array of nodes
+- Dictionary claass: key-value pairs
+
+Java datastructure********
+- includes stack, dictionary, hashtable, etc. The class are now legacy and java 2 has introduced collection framework.
+
+String *****
+- String is immutable
+- StringBuilder is not threadsafe but faster. It should be used when large concatenation is required
+- StringBuffer is threadsafe and slower
+
+Threads ****
+- Process: a Running JVM. 
+- Thread: an instance of a process. each thread runs in separate stack frame
+- thread can be safe by using synchronized block which controls how threads access resources
+- Multithreading: one process can execute multiple process
+- Advantages: improved performance, less servers
+- disadvantages: deadlock, difficult to debug
+- notify() to unblock a thread notifyAll() to unblock all threads   
+- Threadpool: a group of worker threads waiting for job. A thread from the pool is pulled out and assigned a job 
+
+equals() and == *****
+- ==: reference/address comparison 
+- equals: value of objects comparison 
+
+final, finally and finalize ****
+- final: make a field, method or class immutable
+- finally: surrounded around a try catch showing what must be executed wheather or not exception is handled or not
+- finalize: used to perform clean up before garbace is collected (use System.gc())
+
+SOLID principles: ******
+- S- single responsibility, 
+- O- open for extension closed for modification, 
+- L- liskov substition, 
+- I- interface segregation, 
+- D- dependency inversion from access modifiers to threads
+
+Race condition*********
+- 2 or more threads trying to access a shared resource. Prevention: synchronization
+
+Deadlock*******
+- 2 or more threads waiting for each other
+- Prevention: avoid nested locks, using thread.join
+- Recovery: abort all process
+
+concurency *****
+- ability to execute several programs or parts of program simultaneously. This is achieved through threads
+- java.lang.Thread class and java.lang.Runnable interface provides functionality for concurrency. java.util.concurrent class was also added in java 1.5
+
+Synchronization ****
+- process which keeps all concurrent threads in execution to be in sync
+
+Serialization *****
+- convertng object into byte stream. Implement the serializable interrface. An unserializable field must be marked transient
+- Transient variable: to prevent storing the value of a vairbale in a file. JVM ignores the value of the variable
+- Externalizable interface: used to define personalized serialization rules and mechanisms 
+
+Objects *******
+- java.lang.object class methods for overriting: tostring, equals and hashcode
+- Object are real time entities with state and behavior
+- Object cloning: creating an exact copy of an object
+- Immutable objects: object cannot be changed once created e.g. Integer, String, etc. To create use final at class and instance variables, parameterized constructure, only getters no setters
+
+Class ******
+- Final class cannot be inherited
+- Final method cannot be overriden
+
+Static ******
+- Static method and variables are shared among all the object of the class. They cannot be overriden
+- Static block: used to initialize the static data member 
+
+Variables ******
+- this cannot be assigned to variables
+- Private member variable can only be accessed by functions inside the class
+- Transient variable: A variable that cannot be serialized. A variable marked transient indicates they are not to be persisted 
+
+Interface********
+- a blueprint of a class. cannot be static or final
+- marker interface: no data member or member function e.g. serializable
+- Future vs callable: callable uses generics, hence can return any type of object. callable == runnable and returns a future objects. The java future provides methods for handling callable tasks e.g. cancel(), get(), isDone(), etc
+externalizable interface
+- externalizable interface: an extension of the serializable interface for saving and restoring the content of the instance of a class
+
+sorting ********
+- using collections.sort or comparator
+- Convert Arraylist to array -> Arrays.asList(item)
+- Comparable and comparator are interfaces for sorting
+
+Error ******
+- Compile time: code is converted to executable
+- Runtime: an instance of executable is running
+
+Java 8 ********
+FP: mathematical way of solving problems
+lambda expression: anonymous and pure function ()->{}
+
+Stream: *********
+- a sequence of objects from a source (Array, Collection, etc) supporting aggregating operations (map, filter, find, match, etc)
+- Parallel stream: running of streams on multiple threads
+- functional interface: interface with exactly 1 abstract method
+- Supplier: fxtnal interface which shows that the implementation is a supplier of result. it has only one method get()
+- Consumer: fxtnal interface, accept single input no output
+- Predicate: fxtn interface representin a boolean-valued fxtns e.g. filter
+- Function: generic fxtnal interface, takes one argument and produces a result
+
+java 8: functional programming
+java 9: modularization (as a support for contenarization)
+
+Design Patterns ****
+- Creational: related to the way of object creation using the new keyword, e.g. factory, builder, singleton, prototype
+- Structural: used to provide efficient standards regarding class composition and object structures using inheritance, e.g. adapter, facade, decorator, proxy
+- Behavioral: interpreter, command, iterator, strategy
+- SIngleton: allows a single instance within an application e.e. java.lang.Runtime. 
+- Adapter: converts the interface of a class into another interface. Also known as wrapper patterns
+- Decorator pattern uses composition to extend the functionality of an object at runtime
+
+DI vs Serrvice Locator design patterns ****
+- Service locator is used to create class dependencies. The class is responsible for creating its dependencies 
+- DI: the class which contains the dependency neither knows nor cares where they came from. DI is easier to test
+
+Cache ***
+LRU cache in Java:  evict least recently used entry

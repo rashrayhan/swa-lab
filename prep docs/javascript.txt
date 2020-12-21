@@ -1,0 +1,81 @@
+JS Data types ****: null, number, string, boolean, object, undefined, etc
+
+let, var, const ******
+- let: mutable, fxtn and block scope
+- var: mutable, global and fxtn scoped
+- const: immutable, fxtn and block scope
+
+Asynchronous Codes *******
+- Debouncing: delayin a function/method execution for a period of time
+- Promises: an object that may produce a value in the future, used for handling async operations. States include pending, fulfilled, rejected 
+- Observables work with multiple values, cancellable and uses RxJS
+- Observables: declaratives which provide support for passing messaages between publishers and subscribers in an app. Mainly used for event handling, asynchronous programming, etc
+- Observer: An interface of a consumer of push-based notifications (next, error and complete)
+- Subscribing: An observable instance begins publishing values when someone subscribes to it using subscribe() method of the instance
+- Multicasting: Broadcasting list of multiple subscribers in a single execution
+- async/await: a new way of writing asynchronous code in JS. Built on top of promise. Async returns a promise
+- Callbacks: used for handling async ops.  first arguments are optional error. 
+- error-first callback: contains error as first arguments 
+- Callback hell: nested unreadable callbacks. Fixable by modularization, promise
+
+Hoisting *******: 
+- moving of variables and functions to module/function scope
+
+Closure *******: fxtn with access to free variable
+
+Currying: *******
+- pattern for breaking fxtn with multiple params into multiple fxtns
+
+== vs === *****: abstract and strict equality
+
+Falsy values: **** 
+- values when converted to booleans becomes false. use !! to check if falsy
+- They include null, 0, false, '', undefined and nan
+
+Inheritance *****
+- JS supports inheritance by using prototype object 
+- We can use the new keyword 
+
+Spread vs Rest Operator *******
+- Spread: spread individual data of an array to another data
+- Rest: used in functions or an array to get all args or values
+
+Implicit vs Explicit Coercion *******
+Implicit: a way of converting values to another type automatically
+Explicit: manually converting values to another type
+
+null vs undefined vs undeclared****
+- null: variable declared and assigned null value
+- undefined: variable declared without a value
+- undeclared: assigning value to a not yet declared variable
+- both undefined and null belongs to js 7 primitive types
+
+Events ***********
+- Event delegation: addding event listeners to parent element rather than child
+- Event propagation: event bubbling up to their anscestors. Phases can be capturing, target and bubbling 
+- Event bubbling: element looking for event handlers down to their anscestors
+- Event capturing: event starting from window down to target element 
+- Event.target: element on which an event happened
+
+preventDefault() vs stopPropagation()*******
+- preventDefault() disables the default behavior of an element
+-stopPropagation() stops the propagation of an event during event bubbling
+
+DOM **********
+An tree-like interface for HTML and XML docs
+
+Set Object ******
+- An ES6 feature that lets you store unique values, primitives or object reference const s= new Set();
+
+Function Invoke *****
+- Invocation as a function: owned by window obj e.g. console.log()
+- Invocation as a method: if property has a value of function 
+- Invocation as a constructor: if invoked with new keyword
+- Invocation with apply and call methods: to explicitly specify the this value. Available for all functions
+
+Storage ****
+- Local: data is not sent back to the server for every HTTP request
+- Session: same with local but gets cleared when session ends (browser closed)
+
+Printing one level of a nested object *****
+- we can use console.dir and pass in a depth

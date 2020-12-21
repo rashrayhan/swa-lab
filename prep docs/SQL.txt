@@ -1,0 +1,47 @@
+Primary Key: constraint for unique identification of row in a table
+Foreign key: single or collectn of fields referring to primary key of another table
+Composite key: combination of 2 or more unique columns as key
+
+Join: combine 2 records from 2 or more tables in a SQL
+Inner join: both tables have record same as join
+left join: left table must have record
+right join: right table must have record
+full (outer) join: either table have record
+self join: table is joined to itself based on column relation
+cross join: cartesian product of 2 tables 
+
+SELECT column-names
+  FROM table-name1 JOIN table-name2 
+    ON column-name1 = column-name2
+ WHERE condition
+
+index: data structure that provides quick looked of data in a table
+data integrity: data accuracy over its entire lifecycle
+
+Relationships: 1 to 1, 1 to many, many to 1, many to many, self reference
+
+ACID property: atomicity, consistency, isolation and durability
+
+Alias: temporary name assigned to a table or column for query purpose (AS)
+
+normalization: rules of organizing data in db efficiently
+denormalization: reverse of normalization 
+
+Collation: set of rules for determining how data is sorted and compared
+Collation Types: case sensitivity, accent sensitivity, width sensitivity
+
+Stored Procedures: subroutines available to apps for accessing RDBMS
+
+Cloning table:  SELECT * INTO copy FROM original WHERE 1 = 2;
+
+delete: delete rows
+truncate: empty the table
+drop: delete the table and content
+
+Aggregate functions: avg, count, min, max, sum, etc
+scalar function: len, mid, round, format
+
+Pattern matching: used for search: like, not like using %
+
+OLTP: software application for transaction oriented programs
+OLAP: software for online transaction but relatively too complex
