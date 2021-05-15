@@ -1,0 +1,77 @@
+Lecture 2
+Strategy Pattern
+- extracts algorithms to new class or interface
+- benefits: add new algorithms without modifying old class, reusability of algorithms
+- e.g. order system has pay(), paywithVisa(), payWithAmex(). To add another payment option, means modifying the class. To apply strategy pattern, make payment an interface with pay() and other payment option can implement payment interface
+- With strategy pattern, different algorithms are extracted from its context and encapsulated as strategy classes
+
+
+TEMPLATE PATTERN
+-  Defines the skeleton of an algorithm in the superclass but allows subclasses to override specific steps of the algorithm without changing its structure
+- Check for common behavior between 2 classes and extract common behavior to an interface or abstract class 
+- What Template method solves: Whenever you have an algorithm with different steps, define the algorithm in one place and let subclasses implete it 
+
+
+LECTURE 3
+OBSERVER PATTERN 
+- Lets observers be notified when subject is changed (subscriber/publisher)
+- Benefits: loose coupling, open-closed principle and ease of adding new observers
+- The observer pattern makes observables (publishers) independent of observers (subscribers)
+- The pull model allows the observers to pull changes from subject
+- The push model allows the subject to push changes to the observers
+- For pull, any observer can pull from the subject and observers knows the subject
+- For push, only subscribed observers get notified, observers do not know the subject
+- The observer pattern is all about loose coupling between subject and observers.
+
+
+LECTURE 4
+COMPOSITE PATTERN
+- To compose objects into tree structures to represent part-whole hierarchies e.g. file system
+- It lets clients treat individual objects and compositions of objects uniformly
+
+
+ITERATOR PATTERN
+- Used to access the elements of an aggregate object sequentially without exposing its underlying implementation
+- All collections has the same iterator code (hasNext and next)
+- Internally, the iterator controls the iteration and externally the client controls the iteration
+- The iterator pattern separates the iteration functionality from the collection so that the client is unaware of the structure of the collection
+
+
+LECTURE 5: COMMAND
+- Encapsulate a request into a single object
+- Benefits: objects can be logged, objects can be used for undo/redo functionality, object can be replayed
+- Problems solved:
+1- When action taken by user need to be known, use command pattern
+2- Use command pattern for undo/redo functionality
+3- Provides suports for macros (recording and playback of macros)
+- Issues of command pattern: state storage can become complex
+
+LECTURE 6: STATE PATTERN
+- Allows objects to completely change its behavior depending on current internal state
+- Advantages: Simplify if-then-else logic, easier to add new state and easier to change state logic
+
+State Vs Strategy
+- Strategy: context can have different algorithms and strategies do not know each other
+- State: context can have different states and each state knows the local state transitions
+
+
+LECTURE 7: COR
+- COR connects handlers in a chain 
+- COR is used to transform complex if-then-else logic into many simpler if-then-else structures
+- Issues: When there is no handler, COR cannot work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
